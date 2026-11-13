@@ -1,0 +1,58 @@
+@startuml
+
+class Passager {
+    - idPassager : int
+    - nom : string
+    - prenom : string
+    - telephone : string
+    - email : string
+    + enregistrer()
+    + afficherInformations()
+}
+
+class Vol {
+    - numeroVol : string
+    - destination : string
+    - dateVol : string
+    - heureVol : string
+    - capacite : int
+    - nombrePlacesReservees : int
+    - prixBillet : double
+    + afficherVol()
+    + verifierDisponibilite()
+    + rechercherVol()
+}
+
+class Reservation {
+    - idReservation : int
+    - dateReservation : string
+    - statut : string
+    + effectuerReservation()
+    + annulerReservation()
+    + afficherReservation()
+}
+
+class Paiement {
+    - idPaiement : int
+    - montant : double
+    - datePaiement : string
+    - statutPaiement : string
+    + enregistrerPaiement()
+    + verifierPaiement()
+}
+
+class Remboursement {
+    - idRemboursement : int
+    - montant : double
+    - dateRemboursement : string
+    - statutRemboursement : string
+    + effectuerRemboursement()
+    + afficherRemboursement()
+}
+
+Passager "1" -- "0..*" Reservation : effectue
+Vol "1" -- "0..*" Reservation : concerne
+Reservation "1" -- "0..1" Paiement : reçoit
+Paiement "1" -- "0..1" Remboursement : donne lieu
+
+@enduml
