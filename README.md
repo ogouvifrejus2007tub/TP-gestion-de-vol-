@@ -76,3 +76,109 @@ Le diagramme de classes représente les attributs, les méthodes et les associat
 
 Ce projet permettra de mettre en pratique les notions de programmation orientée objet et de modélisation UML à travers la conception d'une application de gestion des vols et des réservations de billets d'avion.
 
+
+# MODELISATION UML
+## Application de gestion des vols et des réservations de billets d'avion
+
+## 1. Identification des classes
+
+Après l'analyse du problème posé, j'ai identifié cinq classes principales :
+
+- Passager
+- Vol
+- Reservation
+- Paiement
+- Remboursement
+
+Ces classes représentent les principales entités nécessaires au fonctionnement de l'application.
+
+## 2. Identification des attributs et des méthodes
+
+### Classe Passager
+
+Attributs :
+- idPassager : int
+- nom : string
+- prenom : string
+- telephone : string
+- email : string
+
+Méthodes :
+- enregistrer()
+- afficherInformations()
+
+### Classe Vol
+
+Attributs :
+- numeroVol : string
+- destination : string
+- dateVol : string
+- heureVol : string
+- capacite : int
+- nombrePlacesReservees : int
+- prixBillet : double
+
+Méthodes :
+- afficherVol()
+- verifierDisponibilite()
+- rechercherVol()
+
+### Classe Reservation
+
+Attributs :
+- idReservation : int
+- dateReservation : string
+- statut : string
+
+Méthodes :
+- effectuerReservation()
+- annulerReservation()
+- afficherReservation()
+
+### Classe Paiement
+
+Attributs :
+- idPaiement : int
+- montant : double
+- datePaiement : string
+- statutPaiement : string
+
+Méthodes :
+- enregistrerPaiement()
+- verifierPaiement()
+
+### Classe Remboursement
+
+Attributs :
+- idRemboursement : int
+- montant : double
+- dateRemboursement : string
+- statutRemboursement : string
+
+Méthodes :
+- effectuerRemboursement()
+- afficherRemboursement()
+
+## 3. Associations entre les classes
+
+Les associations identifiées sont les suivantes :
+
+- Un passager peut effectuer plusieurs réservations.
+- Une réservation appartient à un seul passager.
+- Un vol peut recevoir plusieurs réservations.
+- Une réservation concerne un seul vol.
+- Une réservation peut avoir un paiement.
+- Un paiement est associé à une seule réservation.
+- Un paiement peut donner lieu à un remboursement.
+- Un remboursement concerne un seul paiement.
+
+## 4. Multiplicités des associations
+
+- Passager (1) — Reservation (0..*)
+- Vol (1) — Reservation (0..*)
+- Reservation (1) — Paiement (0..1)
+- Paiement (1) — Remboursement (0..1)
+
+## 5. Conclusion
+
+Cette modélisation permet de représenter les différentes entités de l'application ainsi que leurs relations. Elle servira de base à la réalisation du diagramme de classes UML et à l'implémentation en C++.
